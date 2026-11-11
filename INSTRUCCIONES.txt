@@ -1,24 +1,65 @@
-MI OFICINA ORLANDO V5
+MI OFICINA ORLANDO V6 — CHECKLIST DE PRUEBAS
 
-Para instalar en GitHub, sube a la raíz del repositorio estos cuatro archivos:
-- index.html (sustituir el anterior)
-- logo-orlando.png (nuevo)
-- icon-orlando.png (nuevo)
-- manifest.webmanifest (sustituir el anterior)
+ESTADO: VERSIÓN DE PRUEBA. NO VALIDADA AÚN EN SAFARI DE IPHONE.
+No consideres comprobada una función hasta probarla con un archivo de ejemplo.
 
-No borres README.md ni los demás archivos existentes.
+DISEÑO
+[ ] Logo y pantalla principal sin texto de versión
+[ ] Icono de pantalla de inicio
+[ ] Descargar, renombrar y compartir sin sobrescribir el original
 
-Después, espera a que GitHub Actions muestre el despliegue en verde y recarga Visit site en Safari.
+PDF DE V5 (CONSERVADOS)
+[ ] Unir PDF y cambiar orden de documentos
+[ ] Dividir PDF
+[ ] Girar PDF
+[ ] Organizar PDF con flechas
+[ ] Organizar PDF manteniendo pulsado y arrastrando miniaturas (experimental)
+[ ] Vista ampliada en Unir
+[ ] Vista ampliada en Dividir
+[ ] Vista ampliada en Girar
+[ ] Vista ampliada en Organizar
+[ ] Imágenes a PDF
+[ ] PDF a imágenes
 
-NOVEDADES PARA PROBAR
-- Logo en la cabecera.
-- Miniaturas PDF: tocar para ampliar, navegar y usar botones de zoom.
-- Organizar PDF: seleccionar miniatura y mover con botones izquierda/derecha.
-- Unir PDF: cambiar orden de documentos con flechas.
-- Escanear documentos: seleccionar o fotografiar papel, ajustar cuatro esquinas y exportar PDF.
+PDF NUEVOS — IMPLEMENTADOS PARA PRUEBA
+[ ] Eliminar páginas
+[ ] Extraer páginas
+[ ] Numerar páginas
+[ ] Marca de agua
+[ ] Editar PDF: añadir texto (NO reemplaza texto original)
+[ ] Firmar PDF con el dedo (firma visual, no certificado)
+[ ] Insertar imágenes y sellos
+[ ] Información del PDF
+[ ] Comparar dos PDF por texto (comparación orientativa)
+[ ] Rellenar formularios PDF interactivos (campos de texto/casillas)
+[ ] OCR en español o inglés (requiere conexión y modelo OCR)
+[ ] Reconstruir PDF como folio mecanografiado (revisar OCR)
+[ ] Reconstruir PDF conservando diseño: SOLO APROXIMACIÓN TEXTUAL, no recrea iconos/tablas
+[ ] Comprimir PDF mediante rasterización (pierde texto seleccionable, puede aumentar tamaño)
+
+PDF PENDIENTES, NO FUNCIONALES EN ESTA V6
+[ ] Proteger PDF con contraseña: pendiente de motor de cifrado seguro
+[ ] Editar/reemplazar directamente texto original: pendiente de motor de edición estructural
+[ ] Reconstrucción fiel del diseño original (iconos, tablas y tipografías): pendiente
+[ ] Vista previa final y deshacer/rehacer para todas las herramientas: pendiente
+
+OTRAS HERRAMIENTAS CONSERVADAS
+[ ] Editor de audio MP3/M4A/WAV, salida WAV
+[ ] Convertir imágenes
+[ ] Escanear fotos a PDF con ajuste manual de esquinas
+[ ] Crear ZIP
+
+PUBLICAR EN GITHUB PAGES
+1. Descomprime este ZIP en Archivos.
+2. Sube index.html, logo-orlando.png, icon-orlando.png y manifest.webmanifest
+   a la raíz del repositorio, reemplazando los existentes.
+3. No borres los demás archivos del repositorio.
+4. Espera al despliegue de GitHub Pages y recarga Safari.
+5. Prueba con COPIAS de documentos sin datos sensibles.
 
 NOTAS
-- En iPhone, «Compartir / Elegir dónde guardar» abre el menú nativo cuando Safari lo permite.
-- El escáner usa ajuste manual de las esquinas (detección automática pendiente).
-- Esta versión aún necesita pruebas en Safari con tus propios documentos.
-- El recortador MP3 V4 se ha conservado.
+- Las bibliotecas JS se cargan desde CDN; se necesita conexión la primera vez.
+- OCR usa Tesseract.js ejecutado en el navegador y descarga modelos de idioma.
+- Comparar PDF no compara diseño ni detecta cambios de orden sofisticados.
+- No se promete que PDF comprimido sea más pequeño.
+- No está implementado un cifrado de PDF real; botón deshabilitado para evitar falsa seguridad.
