@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#172b4d"><title>Mi Oficina · Orlando 2026 · V4</title>
-<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon.svg">
+<meta name="theme-color" content="#172b4d"><title>Mi Oficina · Orlando 2026 · V5</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-orlando.png">
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172b4d;background:#f6f8fb}
 *{box-sizing:border-box}body{margin:0;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
@@ -34,8 +34,12 @@ button.secondary,.actionlink.secondary{background:#eaf0f8;color:#172b4d}
 .preview img{max-width:100%;max-height:270px;object-fit:contain}
 footer{text-align:center;font-size:12px;color:#778498}
 @media(min-width:600px){.grid{grid-template-columns:repeat(3,1fr)}}
+ 
+.brand-header{display:block;padding-top:12px;padding-bottom:6px}.brand-img{width:100%;height:auto;display:block;max-height:155px;object-fit:contain;object-position:left center}.brand-header small{display:block;margin-top:3px;letter-spacing:.04em}
+#pdfViewer{position:fixed;inset:0;z-index:999;background:#e9eef6;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 10px env(safe-area-inset-bottom)}
+#pdfViewer.hidden{display:none!important}.viewer-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 3px}.viewer-head button,.viewer-nav button{border:0;border-radius:10px;background:#fff;padding:12px;color:#172b4d;font-size:15px}.viewer-stage{flex:1;overflow:auto;display:flex;align-items:flex-start;justify-content:center;background:#dce4ef;border-radius:12px;touch-action:pan-x pan-y}.viewer-stage canvas{display:block;margin:auto;max-width:none;box-shadow:0 3px 18px #9aa9ba}.viewer-nav{display:flex;gap:8px;padding:10px 0;justify-content:center;align-items:center}.viewer-nav button{flex:1}.clickpage{cursor:zoom-in}.page-card{cursor:pointer}.page-card.selected{outline:3px solid #4e84cf}.reorder-controls{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.reorder-controls button{flex:1;min-width:90px;border:0;background:#e9e5f5;color:#493682;padding:11px;border-radius:10px}.scanner-canvas{width:100%;max-height:390px;object-fit:contain;background:#e8edf4;border-radius:12px;touch-action:none}.scan-settings{display:grid;grid-template-columns:1fr 1fr;gap:10px}.scan-settings>*{min-width:0}
 </style></head>
-<body><header><div class="logo">▦</div><div><h1>Mi Oficina</h1><small>EDICIÓN ORLANDO 2026 · V4</small></div></header>
+<body><header class="brand-header"><img class="brand-img" src="logo-orlando.png" alt="Mi Oficina Orlando · Edición 2026"><small>HERRAMIENTAS PARA TU IPHONE · V5</small></header>
 <main>
 <section id="home"><h2>Todo lo que necesitas, en un solo lugar.</h2>
 <p class="muted">Herramientas sencillas para tus archivos, desde el iPhone.</p>
@@ -45,7 +49,7 @@ footer{text-align:center;font-size:12px;color:#778498}
 <button class="tile" data-go="pdfmenu"><div class="symbol">📄</div><b>Herramientas PDF</b><span>Unir, dividir, girar, organizar y convertir</span></button>
 <button class="tile" data-go="audio"><div class="symbol">🎵</div><b>Recortar audio</b><span>Editor visual · WAV</span></button>
 <button class="tile" data-go="images"><div class="symbol">🖼️</div><b>Convertir imágenes</b><span>HEIC, JPG y PNG</span></button>
-<button class="tile" data-go="zip"><div class="symbol">🗂️</div><b>Crear ZIP</b><span>Agrupar archivos</span></button>
+<button class="tile" data-go="scan"><div class="symbol">📷</div><b>Escanear documentos</b><span>Foto a PDF · corregir perspectiva</span></button><button class="tile" data-go="zip"><div class="symbol">🗂️</div><b>Crear ZIP</b><span>Agrupar archivos</span></button>
 </div><p class="hint">Procesamiento en el dispositivo. Algunas bibliotecas requieren conexión para cargarse.</p></section>
 <section id="pdfmenu" class="hidden"><button class="back" data-back="home">← Inicio</button><h2>Herramientas PDF</h2><p class="muted">Elige qué quieres hacer con tu documento.</p>
 <div class="grid" id="pdfTiles">
@@ -56,6 +60,10 @@ footer{text-align:center;font-size:12px;color:#778498}
 <button class="tile" data-go="imagepdf"><div class="symbol">🖼️</div><b>Imágenes a PDF</b><span>Fotos en un documento</span></button>
 <button class="tile" data-go="pdftoimages"><div class="symbol">📷</div><b>PDF a imágenes</b><span>Exportar páginas PNG en ZIP</span></button>
 </div><p class="hint">La compresión avanzada, OCR y PDF a Word se incorporarán solo cuando dispongan de una conversión fiable.</p></section>
+<div id="pdfViewer" class="hidden" role="dialog" aria-modal="true" aria-label="Vista ampliada de PDF">
+<div class="viewer-head"><button id="viewerClose">← Volver a miniaturas</button><strong id="viewerLabel"></strong></div>
+<div class="viewer-stage" id="viewerStage"><canvas id="viewerCanvas"></canvas></div>
+<div class="viewer-nav"><button id="viewerPrev">← Anterior</button><button id="viewerZoomOut">− Zoom</button><button id="viewerZoomIn">+ Zoom</button><button id="viewerNext">Siguiente →</button></div></div>
 <section id="workspace" class="hidden"><button class="back" id="back">← Volver</button><h2 id="toolTitle"></h2>
 <div class="panel"><p id="toolHelp" class="hint"></p><label for="files">Selecciona archivos</label>
 <input id="files" type="file" multiple><div id="extra"></div>
@@ -65,7 +73,7 @@ footer{text-align:center;font-size:12px;color:#778498}
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
-let current="",parentSection="home",outputs=[],audioState=null,previewToken=0;
+let current="",parentSection="home",outputs=[],audioState=null,previewToken=0,scanPages=[],pdfViewItems=[],pdfViewIndex=0,pdfViewZoom=1,pdfViewDoc=null,organizedOrder=[],mergeOrder=[];
 const settings={
 images:["Convertir imágenes","Convierte HEIC/HEIF, JPG o PNG a JPG o PNG.","image/*,.heic,.heif",'<label for="format">Formato de salida</label><select id="format"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select>'],
 imagepdf:["Imágenes a PDF","Selecciona fotografías para crear un PDF.","image/*,.heic,.heif",""],
@@ -75,6 +83,7 @@ rotate:["Girar PDF","Gira todas las páginas del documento.","application/pdf,.p
 organize:["Organizar PDF","Escribe el nuevo orden de páginas; por ejemplo: 3,1,2. Puedes omitir páginas.","application/pdf,.pdf",'<label for="pages">Orden de páginas</label><input id="pages" placeholder="3,1,2">'],
 pdftoimages:["PDF a imágenes","Exporta las páginas del PDF como PNG dentro de un ZIP.","application/pdf,.pdf",""],
 audio:["Recortar audio","Selecciona un MP3, M4A o WAV compatible con Safari. El resultado se exporta como WAV.","audio/*,.mp3,.m4a,.wav",'<label for="start">Inicio (segundos)</label><input id="start" type="number" min="0" step="0.05" value="0"><label for="end">Final (segundos)</label><input id="end" type="number" min="0" step="0.05" placeholder="Duración total">'],
+scan:["Escanear documentos","Haz una foto de un documento o selecciónala de Fotos. Ajusta las cuatro esquinas y el acabado antes de crear el PDF.","image/*,.heic,.heif",'<div class="scan-settings"><div><label for="scanMode">Acabado</label><select id="scanMode"><option value="bw">Blanco y negro</option><option value="gray">Grises</option><option value="color">Color mejorado</option></select></div><div><label for="scanQuality">Calidad</label><select id="scanQuality"><option value="1200">Normal</option><option value="1800">Alta</option></select></div></div><p class="hint">Mueve los puntos azules hasta las esquinas del papel. Puedes añadir varias fotos para un PDF de varias páginas.</p>'],
 zip:["Crear ZIP","Agrupa varios archivos en un ZIP.","*/*",""]
 };
 const libraries={
@@ -86,8 +95,8 @@ pdfjs:"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
 function load(key,global){if(window[global])return Promise.resolve();return new Promise((ok,no)=>{let s=document.createElement("script");s.src=libraries[key];s.onload=()=>window[global]?ok():no(Error("Biblioteca no disponible"));s.onerror=()=>no(Error("No se pudo cargar una biblioteca. Comprueba tu conexión."));document.head.append(s)})}
 function base(n){return n.replace(/\.[^.]+$/,"")}
 function cleanupAudio(){if(!audioState)return;audioState.sound.pause();URL.revokeObjectURL(audioState.url);audioState.ctx.close().catch(()=>{});audioState=null}
-function navigate(section){previewToken++;cleanupAudio();for(let id of ["home","pdfmenu","workspace"])$(id).classList.toggle("hidden",id!==section);window.scrollTo(0,0)}
-function showTool(id){current=id;parentSection=["images","audio","zip"].includes(id)?"home":"pdfmenu";navigate("workspace");const s=settings[id];$("toolTitle").textContent=s[0];$("toolHelp").textContent=s[1];$("files").value="";$("files").accept=s[2];$("files").multiple=["images","imagepdf","merge","zip"].includes(id);$("extra").innerHTML=s[3];$("status").textContent="";$("results").replaceChildren()}
+function navigate(section){closeViewer();previewToken++;cleanupAudio();for(let id of ["home","pdfmenu","workspace"])$(id).classList.toggle("hidden",id!==section);window.scrollTo(0,0)}
+function showTool(id){scanPages=[];organizedOrder=[];mergeOrder=[];current=id;parentSection=["images","audio","zip","scan"].includes(id)?"home":"pdfmenu";navigate("workspace");const s=settings[id];$("toolTitle").textContent=s[0];$("toolHelp").textContent=s[1];$("files").value="";$("files").accept=s[2];$("files").multiple=["images","imagepdf","merge","zip","scan"].includes(id);$("extra").innerHTML=s[3];$("status").textContent="";$("results").replaceChildren()}
 document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>b.dataset.go==="pdfmenu"?navigate("pdfmenu"):showTool(b.dataset.go));
 document.querySelectorAll("[data-back]").forEach(b=>b.onclick=()=>navigate(b.dataset.back));
 $("back").onclick=()=>navigate(parentSection);
@@ -114,10 +123,11 @@ function wav(buffer,start,end){const rate=buffer.sampleRate,from=Math.floor(star
 async function pdfDoc(file){return PDFLib.PDFDocument.load(await file.arrayBuffer())}
 $("run").onclick=async()=>{const files=[...$("files").files];if(!files.length){$("status").textContent="Selecciona al menos un archivo.";return}const btn=$("run");btn.disabled=true;$("status").textContent="Procesando…";$("results").replaceChildren();
 try{
-if(current==="images"){const type=$("format").value;for(const f of files){const c=await imageCanvas(f);saveResult(await canvasBlob(c,type),base(f.name)+(type==="image/png"?".png":".jpg"))}}
+if(current==="scan"){await load("pdf","PDFLib");if(!scanPages.length)throw Error("Selecciona una o varias fotografías");const pdf=await PDFLib.PDFDocument.create();for(const item of scanPages){const c=renderScanned(item,Number($("scanQuality").value),$("scanMode").value),blob=await canvasBlob(c,"image/jpeg"),im=await pdf.embedJpg(await blob.arrayBuffer()),page=pdf.addPage([595.28,841.89]);const k=Math.min(595.28/im.width,841.89/im.height);page.drawImage(im,{x:(595.28-im.width*k)/2,y:(841.89-im.height*k)/2,width:im.width*k,height:im.height*k})}saveResult(new Blob([await pdf.save()],{type:"application/pdf"}),"documento_escaneado.pdf")}
+else if(current==="images"){const type=$("format").value;for(const f of files){const c=await imageCanvas(f);saveResult(await canvasBlob(c,type),base(f.name)+(type==="image/png"?".png":".jpg"))}}
 else if(current==="imagepdf"){await load("pdf","PDFLib");const pdf=await PDFLib.PDFDocument.create();for(const f of files){const c=await imageCanvas(f),blob=await canvasBlob(c,"image/jpeg"),im=await pdf.embedJpg(await blob.arrayBuffer()),page=pdf.addPage([im.width,im.height]);page.drawImage(im,{x:0,y:0,width:im.width,height:im.height})}saveResult(new Blob([await pdf.save()],{type:"application/pdf"}),"imagenes.pdf")}
-else if(["merge","split","rotate","organize"].includes(current)){await load("pdf","PDFLib");let pdf=await PDFLib.PDFDocument.create();if(current==="merge"){if(files.length<2)throw Error("Selecciona al menos dos PDF");for(const f of files){const src=await pdfDoc(f),pages=await pdf.copyPages(src,src.getPageIndices());pages.forEach(p=>pdf.addPage(p))}saveResult(new Blob([await pdf.save()],{type:"application/pdf"}),"pdf_unidos.pdf")}
-else{const src=await pdfDoc(files[0]);if(current==="rotate"){pdf=src;pdf.getPages().forEach(p=>p.setRotation(PDFLib.degrees((p.getRotation().angle+Number($("degrees").value))%360)))}else{const ids=range($("pages").value,src.getPageCount()),pages=await pdf.copyPages(src,ids);pages.forEach(p=>pdf.addPage(p))}saveResult(new Blob([await pdf.save()],{type:"application/pdf"}),base(files[0].name)+(current==="rotate"?"_girado.pdf":current==="split"?"_extraido.pdf":"_organizado.pdf"))}}
+else if(["merge","split","rotate","organize"].includes(current)){await load("pdf","PDFLib");let pdf=await PDFLib.PDFDocument.create();if(current==="merge"){if(files.length<2)throw Error("Selecciona al menos dos PDF");for(const idx of (mergeOrder.length===files.length?mergeOrder:files.map((_,i)=>i))){const f=files[idx];const src=await pdfDoc(f),pages=await pdf.copyPages(src,src.getPageIndices());pages.forEach(p=>pdf.addPage(p))}saveResult(new Blob([await pdf.save()],{type:"application/pdf"}),"pdf_unidos.pdf")}
+else{const src=await pdfDoc(files[0]);if(current==="rotate"){pdf=src;pdf.getPages().forEach(p=>p.setRotation(PDFLib.degrees((p.getRotation().angle+Number($("degrees").value))%360)))}else{const ids=current==="organize"&&organizedOrder.length?organizedOrder:range($("pages").value,src.getPageCount()),pages=await pdf.copyPages(src,ids);pages.forEach(p=>pdf.addPage(p))}saveResult(new Blob([await pdf.save()],{type:"application/pdf"}),base(files[0].name)+(current==="rotate"?"_girado.pdf":current==="split"?"_extraido.pdf":"_organizado.pdf"))}}
 else if(current==="audio"){let b;if(audioState?.decoded)b=audioState.decoded;else{const ctx=new (window.AudioContext||window.webkitAudioContext)();try{b=await ctx.decodeAudioData(await files[0].arrayBuffer())}finally{await ctx.close()}}const a=Number($("start").value),end=$("end").value?Number($("end").value):b.duration;if(!Number.isFinite(a)||!Number.isFinite(end)||a<0||end<=a||end>b.duration+.01)throw Error("Comprueba el inicio y el final del recorte");saveResult(wav(b,a,end),base(files[0].name)+"_recortado.wav")}
 else if(current==="zip"){await load("zip","JSZip");const z=new JSZip();files.forEach(f=>z.file(f.name,f));saveResult(await z.generateAsync({type:"blob"}),"mis_archivos.zip")}
 else if(current==="pdftoimages"){await load("pdfjs","pdfjsLib");await load("zip","JSZip");pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";const doc=await pdfjsLib.getDocument({data:new Uint8Array(await files[0].arrayBuffer())}).promise,z=new JSZip();for(let i=1;i<=doc.numPages;i++){const page=await doc.getPage(i),v=page.getViewport({scale:1.5}),c=document.createElement("canvas");c.width=Math.ceil(v.width);c.height=Math.ceil(v.height);await page.render({canvasContext:c.getContext("2d"),viewport:v}).promise;z.file("pagina_"+String(i).padStart(3,"0")+".png",await canvasBlob(c,"image/png"))}await doc.destroy();saveResult(await z.generateAsync({type:"blob"}),base(files[0].name)+"_paginas.zip")}
@@ -126,9 +136,9 @@ $("status").textContent="✓ Proceso terminado. Puedes renombrar, descargar o co
 finally{btn.disabled=false}};
 async function showPreview(){previewToken++;const token=previewToken;cleanupAudio();$("filePreview")?.remove();const files=[...$("files").files];if(!files.length)return;const p=document.createElement("section");p.className="preview";p.id="filePreview";p.innerHTML="<h3>Vista previa</h3><p class='hint'>Preparando…</p>";$("extra").append(p);
 try{
-if(current==="audio")return await audioPreview(files[0],p,token);
+if(current==="audio")return await audioPreview(files[0],p,token);if(current==="scan")return await scanPreview(files,p,token);
 if(current==="images"||current==="imagepdf"){p.innerHTML="<h3>Fotografías seleccionadas</h3><div class='pages-preview'></div>";for(const f of files.slice(0,12)){const c=await imageCanvas(f);if(token!==previewToken)return;const fig=document.createElement("figure"),img=document.createElement("img");img.src=c.toDataURL("image/jpeg",.7);fig.append(img);const cap=document.createElement("figcaption");cap.textContent=f.name;fig.append(cap);p.querySelector(".pages-preview").append(fig)}return}
-if(["merge","split","rotate","organize","pdftoimages"].includes(current)){await load("pdfjs","pdfjsLib");pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";p.innerHTML="<h3>Páginas del documento</h3><div class='pages-preview'></div>";for(const f of files.slice(0,4)){const doc=await pdfjsLib.getDocument({data:new Uint8Array(await f.arrayBuffer())}).promise;for(let i=1;i<=Math.min(doc.numPages,current==="merge"?2:12);i++){if(token!==previewToken){await doc.destroy();return}const page=await doc.getPage(i),v=page.getViewport({scale:.3}),c=document.createElement("canvas");c.width=Math.ceil(v.width);c.height=Math.ceil(v.height);await page.render({canvasContext:c.getContext("2d"),viewport:v}).promise;const fig=document.createElement("figure"),cap=document.createElement("figcaption");cap.textContent=(current==="merge"?f.name+" · ":"")+"Página "+i;fig.append(c,cap);p.querySelector(".pages-preview").append(fig)}if(doc.numPages>12&&current!=="merge"){const note=document.createElement("p");note.className="hint";note.textContent="Mostrando 12 de "+doc.numPages+" páginas";p.append(note)}await doc.destroy()}return}
+if(["merge","split","rotate","organize","pdftoimages"].includes(current)){return await pdfPreviewV5(files,p,token)}
 if(current==="zip"){p.innerHTML="<h3>Archivos seleccionados</h3>";const ul=document.createElement("ul");files.forEach(f=>{const li=document.createElement("li");li.textContent=f.name;ul.append(li)});p.append(ul)}
 }catch(e){if(token===previewToken){p.innerHTML="<h3>Vista previa no disponible</h3>";const note=document.createElement("p");note.className="hint";note.textContent=e.message;p.append(note)}}}
 $("files").addEventListener("change",showPreview);
@@ -153,4 +163,100 @@ p.querySelector("#listen").onclick=async()=>{if(sound.paused){playingSelection=f
 p.querySelector("#listenSelection").onclick=async()=>{sound.pause();sound.currentTime=+start.value;playingSelection=true;await sound.play()};
 p.querySelector("#resetSelection").onclick=()=>{start.value=0;end.value=dur;draw()};
 sound.ontimeupdate=()=>{if(playingSelection&&sound.currentTime>=+end.value){sound.pause();playingSelection=false}draw()};sound.onseeked=draw;requestAnimationFrame(draw)}
+
+// PDF thumbnails and fullscreen page reader
+async function pdfPreviewV5(files,p,token){
+await load("pdfjs","pdfjsLib");pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+p.innerHTML="<h3>Páginas del documento</h3><p class='hint'>Toca una página para verla en grande.</p><div id='pdfReorder'></div><div class='pages-preview' id='pageThumbs'></div>";
+pdfViewItems=[];organizedOrder=[];mergeOrder=files.map((_,i)=>i);
+const holder=p.querySelector("#pageThumbs");
+for(let fi=0;fi<files.length;fi++){
+ const doc=await pdfjsLib.getDocument({data:new Uint8Array(await files[fi].arrayBuffer())}).promise;
+ const max=current==="merge"?Math.min(doc.numPages,2):doc.numPages;
+ for(let i=1;i<=max;i++){
+  if(token!==previewToken){await doc.destroy();return}
+  const page=await doc.getPage(i),v=page.getViewport({scale:.30}),c=document.createElement("canvas");
+  c.width=Math.ceil(v.width);c.height=Math.ceil(v.height);
+  await page.render({canvasContext:c.getContext("2d"),viewport:v}).promise;
+  const fig=document.createElement("figure"),cap=document.createElement("figcaption");
+  fig.className="page-card clickpage";cap.textContent=(current==="merge"?files[fi].name+" · ":"")+"Página "+i;
+  fig.append(c,cap);holder.append(fig);const item={fileIndex:fi,page:i,fig,docName:files[fi].name};
+  pdfViewItems.push(item);fig.onclick=()=>openViewer(pdfViewItems.indexOf(item));
+ }
+ if(current==="merge"&&doc.numPages>2){const note=document.createElement("p");note.className="hint";note.textContent=files[fi].name+": vista de 2 de "+doc.numPages+" páginas (el archivo completo se unirá).";p.append(note)}
+ await doc.destroy();
+}
+if(current==="organize"){
+ organizedOrder=pdfViewItems.map((_,i)=>i);
+ const area=p.querySelector("#pdfReorder");area.innerHTML="<p class='hint'>Selecciona una miniatura y pulsa las flechas para moverla. El PDF seguirá este orden.</p><div class='reorder-controls'><button id='moveLeft'>← Mover antes</button><button id='moveRight'>Mover después →</button><button id='resetOrder'>Restablecer</button></div>";
+ let selected=0;
+ const refresh=()=>{holder.replaceChildren(...organizedOrder.map(i=>pdfViewItems[i].fig));organizedOrder.forEach((idx,pos)=>{const item=pdfViewItems[idx];item.fig.classList.toggle("selected",idx===selected);item.fig.querySelector("figcaption").textContent="Posición "+(pos+1)+" · página "+item.page});$("pages").value=organizedOrder.map(i=>i+1).join(",")};
+ pdfViewItems.forEach((item,idx)=>{item.fig.onclick=()=>{selected=idx;refresh();openViewer(idx)};item.fig.addEventListener("pointerdown",()=>{selected=idx;refresh()})});
+ const move=delta=>{let at=organizedOrder.indexOf(selected),next=at+delta;if(next<0||next>=organizedOrder.length)return;[organizedOrder[at],organizedOrder[next]]=[organizedOrder[next],organizedOrder[at]];refresh()};
+ area.querySelector("#moveLeft").onclick=()=>move(-1);area.querySelector("#moveRight").onclick=()=>move(1);
+ area.querySelector("#resetOrder").onclick=()=>{organizedOrder=pdfViewItems.map((_,i)=>i);refresh()};refresh();
+}
+if(current==="merge"&&files.length>1){
+ const area=p.querySelector("#pdfReorder");area.innerHTML="<p class='hint'>Orden de los documentos (se unirán completos):</p><div id='mergeList'></div>";
+ const render=()=>{const el=area.querySelector("#mergeList");el.replaceChildren();mergeOrder.forEach((idx,pos)=>{const r=document.createElement("div");r.className="reorder-controls";const name=document.createElement("span");name.textContent=(pos+1)+". "+files[idx].name;name.style.flex="3";const up=document.createElement("button"),down=document.createElement("button");up.textContent="↑";down.textContent="↓";up.onclick=()=>{if(pos>0){[mergeOrder[pos-1],mergeOrder[pos]]=[mergeOrder[pos],mergeOrder[pos-1]];render()}};down.onclick=()=>{if(pos<mergeOrder.length-1){[mergeOrder[pos+1],mergeOrder[pos]]=[mergeOrder[pos],mergeOrder[pos+1]];render()}};r.append(name,up,down);el.append(r)})};render();
+}
+}
+async function openViewer(idx){pdfViewIndex=idx;pdfViewZoom=1;$("pdfViewer").classList.remove("hidden");await renderViewer()}
+function closeViewer(){$("pdfViewer")?.classList.add("hidden");if(pdfViewDoc){pdfViewDoc.destroy().catch(()=>{});pdfViewDoc=null}}
+async function renderViewer(){
+ const item=pdfViewItems[pdfViewIndex];if(!item)return;
+ const files=[...$("files").files];$("viewerLabel").textContent="Página "+item.page+" · "+(pdfViewIndex+1)+"/"+pdfViewItems.length;
+ const stage=$("viewerStage"),c=$("viewerCanvas");stage.scrollTop=0;stage.scrollLeft=0;
+ try{
+  if(pdfViewDoc){await pdfViewDoc.destroy();pdfViewDoc=null}
+  const doc=await pdfjsLib.getDocument({data:new Uint8Array(await files[item.fileIndex].arrayBuffer())}).promise;pdfViewDoc=doc;
+  const page=await doc.getPage(item.page),natural=page.getViewport({scale:1}),baseScale=Math.min((stage.clientWidth-18)/natural.width,(stage.clientHeight-20)/natural.height);
+  const v=page.getViewport({scale:Math.max(.1,baseScale*pdfViewZoom)}),dpr=Math.min(window.devicePixelRatio||1,2);
+  c.width=Math.round(v.width*dpr);c.height=Math.round(v.height*dpr);c.style.width=v.width+"px";c.style.height=v.height+"px";
+  await page.render({canvasContext:c.getContext("2d"),viewport:page.getViewport({scale:Math.max(.1,baseScale*pdfViewZoom)*dpr})}).promise;
+ }catch(e){$("viewerLabel").textContent="No se pudo abrir: "+e.message}
+}
+$("viewerClose").onclick=closeViewer;
+$("viewerPrev").onclick=()=>{if(pdfViewIndex>0){pdfViewIndex--;pdfViewZoom=1;renderViewer()}};
+$("viewerNext").onclick=()=>{if(pdfViewIndex<pdfViewItems.length-1){pdfViewIndex++;pdfViewZoom=1;renderViewer()}};
+$("viewerZoomIn").onclick=()=>{pdfViewZoom=Math.min(4,pdfViewZoom*1.5);renderViewer()};
+$("viewerZoomOut").onclick=()=>{pdfViewZoom=Math.max(.75,pdfViewZoom/1.5);renderViewer()};
+let pinchDistance=0;
+$("viewerStage").addEventListener("touchmove",e=>{if(e.touches.length===2){const a=e.touches[0],b=e.touches[1],dist=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);if(pinchDistance&&Math.abs(dist-pinchDistance)>35){pdfViewZoom=Math.max(.75,Math.min(4,pdfViewZoom*(dist/pinchDistance)));pinchDistance=dist;renderViewer()}else if(!pinchDistance)pinchDistance=dist}} ,{passive:true});
+$("viewerStage").addEventListener("touchend",()=>pinchDistance=0);
+
+// Scanner: adjustable quadrilateral and perspective corrected raster
+async function scanPreview(files,p,token){
+ scanPages=[];p.innerHTML="<h3>Escanear documentos</h3><p class='hint'>Ajusta los cuatro puntos azules para delimitar el folio.</p><div id='scanPages'></div>";
+ const holder=p.querySelector("#scanPages");
+ for(let i=0;i<files.length;i++){
+  const c=await imageCanvas(files[i]);if(token!==previewToken)return;
+  const w=c.width,h=c.height,canvas=document.createElement("canvas"),max=650,scale=Math.min(1,max/Math.max(w,h));
+  canvas.width=Math.round(w*scale);canvas.height=Math.round(h*scale);canvas.getContext("2d").drawImage(c,0,0,canvas.width,canvas.height);
+  const item={canvas,pts:[[.04,.04],[.96,.04],[.96,.96],[.04,.96]]};scanPages.push(item);
+  const section=document.createElement("div");section.style.marginBottom="16px";
+  const heading=document.createElement("p");heading.textContent=(i+1)+". "+files[i].name;
+  const view=document.createElement("canvas");view.className="scanner-canvas";view.width=canvas.width;view.height=canvas.height;
+  section.append(heading,view);holder.append(section);
+  const draw=()=>{const g=view.getContext("2d");g.drawImage(canvas,0,0);g.strokeStyle="#11b4ef";g.lineWidth=3;g.beginPath();item.pts.forEach(([x,y],j)=>j?g.lineTo(x*view.width,y*view.height):g.moveTo(x*view.width,y*view.height));g.closePath();g.stroke();item.pts.forEach(([x,y])=>{g.beginPath();g.arc(x*view.width,y*view.height,9,0,Math.PI*2);g.fillStyle="#0077cf";g.fill();g.strokeStyle="#fff";g.lineWidth=2;g.stroke()})};
+  let active=-1;view.addEventListener("pointerdown",e=>{const r=view.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;let dist=Infinity;item.pts.forEach((pt,j)=>{const d=Math.hypot((pt[0]-x)*r.width,(pt[1]-y)*r.height);if(d<dist){dist=d;active=j}});view.setPointerCapture(e.pointerId)});
+  view.addEventListener("pointermove",e=>{if(active<0)return;const r=view.getBoundingClientRect();item.pts[active]=[Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),Math.max(0,Math.min(1,(e.clientY-r.top)/r.height))];draw()});
+  for(const event of ["pointerup","pointercancel","lostpointercapture"])view.addEventListener(event,()=>active=-1);draw();
+ }
+}
+function renderScanned(item,maxSide,mode){
+ const src=item.canvas,w=src.width,h=src.height,pts=item.pts.map(p=>[p[0]*w,p[1]*h]);
+ const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);
+ let ow=Math.max(1,Math.round(Math.max(dist(pts[0],pts[1]),dist(pts[3],pts[2]))));
+ let oh=Math.max(1,Math.round(Math.max(dist(pts[0],pts[3]),dist(pts[1],pts[2]))));
+ const factor=Math.min(1,maxSide/Math.max(ow,oh));ow=Math.max(1,Math.round(ow*factor));oh=Math.max(1,Math.round(oh*factor));
+ const out=document.createElement("canvas");out.width=ow;out.height=oh;
+ const g=out.getContext("2d"),data=g.createImageData(ow,oh),source=src.getContext("2d").getImageData(0,0,w,h).data;
+ // Projective mapping from unit output square to input quadrilateral
+ const [a,b,c,d]=pts;const dx1=b[0]-c[0],dx2=d[0]-c[0],dx3=a[0]-b[0]+c[0]-d[0],dy1=b[1]-c[1],dy2=d[1]-c[1],dy3=a[1]-b[1]+c[1]-d[1];
+ const det=dx1*dy2-dx2*dy1;let g1=0,g2=0;if(Math.abs(det)>1e-7){g1=(dx3*dy2-dx2*dy3)/det;g2=(dx1*dy3-dx3*dy1)/det}
+ const ax=b[0]-a[0]+g1*b[0],bx=d[0]-a[0]+g2*d[0],ay=b[1]-a[1]+g1*b[1],by=d[1]-a[1]+g2*d[1];
+ for(let y=0;y<oh;y++)for(let x=0;x<ow;x++){const u=x/Math.max(1,ow-1),v=y/Math.max(1,oh-1),den=g1*u+g2*v+1,sx=Math.max(0,Math.min(w-1,Math.round((ax*u+bx*v+a[0])/den))),sy=Math.max(0,Math.min(h-1,Math.round((ay*u+by*v+a[1])/den))),si=(sy*w+sx)*4,di=(y*ow+x)*4;let r=source[si],gg=source[si+1],bb=source[si+2];if(mode==="bw"){const lum=.299*r+.587*gg+.114*bb,val=lum>170?255:lum<105?0:Math.round((lum-105)/65*255);r=gg=bb=val}else if(mode==="gray"){const val=Math.max(0,Math.min(255,(.299*r+.587*gg+.114*bb-105)*1.25+105));r=gg=bb=val}else{r=Math.min(255,(r-115)*1.13+123);gg=Math.min(255,(gg-115)*1.13+123);bb=Math.min(255,(bb-115)*1.13+123)}data.data[di]=r;data.data[di+1]=gg;data.data[di+2]=bb;data.data[di+3]=255}
+ g.putImageData(data,0,0);return out
+}
 </script></body></html>

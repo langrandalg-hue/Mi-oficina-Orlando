@@ -1,0 +1,24 @@
+MI OFICINA ORLANDO V5
+
+Para instalar en GitHub, sube a la raíz del repositorio estos cuatro archivos:
+- index.html (sustituir el anterior)
+- logo-orlando.png (nuevo)
+- icon-orlando.png (nuevo)
+- manifest.webmanifest (sustituir el anterior)
+
+No borres README.md ni los demás archivos existentes.
+
+Después, espera a que GitHub Actions muestre el despliegue en verde y recarga Visit site en Safari.
+
+NOVEDADES PARA PROBAR
+- Logo en la cabecera.
+- Miniaturas PDF: tocar para ampliar, navegar y usar botones de zoom.
+- Organizar PDF: seleccionar miniatura y mover con botones izquierda/derecha.
+- Unir PDF: cambiar orden de documentos con flechas.
+- Escanear documentos: seleccionar o fotografiar papel, ajustar cuatro esquinas y exportar PDF.
+
+NOTAS
+- En iPhone, «Compartir / Elegir dónde guardar» abre el menú nativo cuando Safari lo permite.
+- El escáner usa ajuste manual de las esquinas (detección automática pendiente).
+- Esta versión aún necesita pruebas en Safari con tus propios documentos.
+- El recortador MP3 V4 se ha conservado.
