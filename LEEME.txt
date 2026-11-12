@@ -1,0 +1,9 @@
+MI OFICINA ORLANDO V8 — EDICIÓN DE PRUEBAS
+
+Abre index.html con los demás archivos en la misma carpeta. Conserva V7. Requiere conexión para bibliotecas PDF externas. No está verificada en Safari iPhone.
+
+Incluye editor unificado, miniaturas, páginas, texto, marcas de agua de imagen, firmas táctiles, rotación y opacidad de elementos, anotaciones visuales, búsqueda digital, formulario simple, recorte, compresión rasterizada, borrador local limitado, además de las herramientas clásicas.
+
+LIMITACIONES: edición de texto digital original, censura irreversible, OCR integrado al editor único, comparación integrada y protección con contraseña no están garantizadas. No usar para documentos sensibles. El borrador local no sustituye una copia de seguridad.
+
+Audio, conversor de imágenes y ZIP conservan código previo. Escáner corregido para procesar imagen original, aunque el resultado depende de la foto y rendimiento del dispositivo.
