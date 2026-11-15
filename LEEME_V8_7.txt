@@ -1,0 +1,16 @@
+MI OFICINA ORLANDO V8.7 - VERSION DE PRUEBA
+
+NOVEDADES
+- Añadir enlace: muestra la URL en lugar de ENLACE WEB, con varias líneas y anotación pulsable.
+- Crear PDF formulario de prueba: campos de texto, casilla, lista desplegable, botones de opción y firma como texto.
+- Añadir campo formulario: crea campos AcroForm reales en la página activa y exporta con Guardar PDF.
+- Conserva el editor, resaltador, controles táctiles y compresor de V8.6.
+
+LIMITACIONES IMPORTANTES
+- PROTEGER PDF CON CONTRASEÑA REAL NO ESTÁ IMPLEMENTADO. No se simula protección.
+- Los campos insertados tienen posición inicial fija, aún no se ajustan arrastrando el dedo.
+- Campo de firma es texto rellenable, NO firma digital certificada.
+- Algunas aplicaciones lectoras PDF no admiten todos los campos interactivos.
+- Comprueba enlaces largos y campos en Safari iPhone; la sintaxis está verificada, no las pruebas táctiles.
+
+PUBLICACIÓN: subir index.html, editor-v8.js, v85-extras.js, manifest.webmanifest, logo-orlando.png e icon-orlando.png.
