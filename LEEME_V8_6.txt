@@ -1,0 +1,9 @@
+Mi Oficina Orlando V8.6 - PRUEBAS
+
+Se conservan v85-extras.js, el resaltador y los controles de elementos.
+Comprimir PDF: abre un panel; pulsa Calcular tamaños y espera a los resultados reales. Sin pérdida y optimizar estructura no rasterizan; máxima rasteriza. La opción equilibrada de reducción selectiva de imágenes aún no está implementada.
+Guardar resultado: botón Eliminar resultado borra solo la tarjeta temporal, nunca archivos de Archivos/iCloud.
+Enlaces: enlace HTTP/HTTPS pulsable con rótulo visible en el PDF exportado.
+Protección PDF: aún NO cifra; se muestra aviso explícito. No introducir datos confidenciales creyendo que están protegidos.
+
+Probar en Safari iPhone y conservar V8.5 como respaldo.
