@@ -1,0 +1,13 @@
+MI OFICINA ORLANDO V8.8.4 — VERSION DE PRUEBA
+Base: V8.8.3 proporcionada por la usuaria.
+
+CAMBIOS:
+- Recuperacion de borradores .orlando.json con bytes serializados como listas u objetos numericos (incluidos antiguos).
+- Validacion de cada pagina PDF antes de sustituir el documento del editor.
+- Aviso de error de recuperacion sin borrar el documento abierto.
+- + Nuevo PDF, PDF en blanco y opcion Nuevo PDF / Continuar editando tras guardar.
+- Importacion de sellos con eliminacion opcional de fondo claro, ajuste de sensibilidad y PNG transparente.
+- Conserva la biblioteca de sellos y las funciones anteriores.
+
+IMPORTANTE: prueba en Safari iPhone pendiente. Conserva la version anterior y copias de seguridad.
+La eliminacion automatica de fondo puede afectar detalles claros del sello.
