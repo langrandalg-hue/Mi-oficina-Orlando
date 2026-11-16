@@ -1,0 +1,13 @@
+MI OFICINA ORLANDO V8.8.3 — actualización de prueba
+
+INSTALACIÓN: sustituye en GitHub Pages los seis archivos principales por los incluidos en este ZIP. No cambies sus nombres. En Safari recarga la página y comprueba que aparece V8.8.3.
+
+CAMBIOS:
+- Rellenar campos existentes ya no ejecuta flatten() automáticamente; los campos siguen editables.
+- Se comprueba que el PDF resultante se puede representar antes de sustituir el PDF en el editor. Si falla, se conserva el anterior.
+- Botón «Fijar campos del formulario» independiente, con confirmación y validación previa.
+- Al exportar, las respuestas existentes se fijan solo en la copia de salida para evitar anotaciones huérfanas al combinar páginas; el proyecto en el editor sigue editable.
+- Sellos de texto: fuente adaptada al tamaño del recuadro en la vista y en el PDF exportado. Imágenes PNG transparentes: conservan el escalado con el recuadro.
+- Se conservan biblioteca de sellos, notas, resaltador, información, borradores y funciones previas de V8.8.2.
+
+IMPORTANTE: no está probado en Safari iPhone. Conserva una copia del PDF original y de la versión anterior de la aplicación antes de actualizar. El proceso de exportación fija campos en la copia, por lo que el PDF exportado no mantiene esos campos rellenables. El guardado de borradores en Archivos depende de la hoja Compartir de iOS; el historial local depende del almacenamiento Safari.
