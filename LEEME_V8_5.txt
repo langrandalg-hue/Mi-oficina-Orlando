@@ -1,9 +1,0 @@
-Mi Oficina Orlando V8.5 - Prueba Safari iPhone
-
-Subir los 6 archivos de aplicación a la raíz del repositorio: index.html, editor-v8.js, v85-extras.js, manifest.webmanifest, logo-orlando.png, icon-orlando.png. No es necesario subir este LEEME.
-
-Resaltador: activar desde Más herramientas PDF; trazar con un dedo sobre el documento. Terminar para navegar. Dos dedos en modo resaltador amplían/reducen.
-Objetos: en modo Editar, cuatro esquinas permiten cambiar límites de imagen, firma, sello y texto; el control central mueve el conjunto. El ajuste es rectangular, no deformación libre de perspectiva.
-Compresión: Sin rasterizar / Optimizar estructura (sin garantía de reducción) / Máxima (rasteriza). No se implementa todavía recomprimir imágenes individualmente sin rasterizar.
-
-Pendiente de pruebas reales en Safari iPhone; conservar respaldo V8.4. Protección PDF por contraseña sigue pendiente.
