@@ -1,0 +1,18 @@
+MI OFICINA ORLANDO V8.8.2 — PRUEBA EN SAFARI IPHONE
+
+Sube TODOS estos archivos a la raíz del repositorio de GitHub Pages, reemplazando los anteriores (sin extensión .txt):
+index.html, editor-v8.js, v85-extras.js, logo-orlando.png, icon-orlando.png, manifest.webmanifest.
+
+NOVEDADES
+- Se reconectan los botones Resaltador, Nota/comentario, Sellos, Campos formulario existentes, Información y Borradores.
+- Sellos: biblioteca local, creación de texto, importación de PNG transparente para sello de empresa, vista previa, insertar, renombrar, eliminar.
+- Formulario existente: texto, casillas, listas y selección única. IMPORTANTE: al rellenar se aplanan las respuestas en la página; no quedan campos editables en el PDF resultante.
+- Borrador: solicita nombre, guarda localmente en IndexedDB y ofrece compartir el proyecto JSON con Archivos. Recuperación desde JSON en Archivos o desde la lista local.
+- Historial: últimas 10 ediciones y borradores locales. Guardado automático al comenzar modificaciones; no sustituye copias externas.
+- Ajustes de etiquetas de checkbox y opciones radio al crear formularios.
+
+LIMITACIONES
+- Safari puede borrar el almacenamiento local; conserva copias .orlando.json en Archivos/iCloud.
+- Al abrir un PDF terminado desde historial se añade a la sesión actual; si deseas comenzar desde cero, recarga la app antes de abrirlo.
+- No se incluye cifrado real de PDF. No uses esta versión para proteger información confidencial.
+- Pruebas realizadas: validación sintáctica JavaScript, presencia de controles y estructura ZIP. Pendiente validación manual en Safari iPhone.
