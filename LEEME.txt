@@ -1,1 +1,0 @@
-Mi Oficina Orlando V8.2 - pruebas Safari iPhone. Correcciones: asa Mover miniaturas, cuadrilátero de resaltado con cuatro vértices independientes y exportación, papelera sincronizada con Deshacer. El almacenamiento de Safari no es copia de seguridad. Conservar la versión anterior. Funciones avanzadas de protección/censura siguen pendientes.
