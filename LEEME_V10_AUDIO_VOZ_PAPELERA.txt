@@ -1,0 +1,16 @@
+Mi Oficina Orlando V10 — prueba de voz y papelera de audio
+
+NOVEDADES:
+- Editar audio > Transformar voz: efectos básicos grave, agudo, robot, alienígena, radio y eco, con intensidad y vista previa.
+- Editar audio > Eliminar audio seleccionado: mueve la copia cargada a la papelera de 7 días.
+- Papelera de audio: restaurar, borrar definitivamente y vaciar. Almacenamiento local IndexedDB, condicionado a Safari y a espacio disponible.
+- Los archivos originales de la aplicación Archivos del iPhone no se modifican ni eliminan.
+
+LIMITACIONES:
+- Versión experimental; no probada físicamente en Safari iPhone.
+- Los efectos de tono son aproximaciones DSP, no cambios de tono profesionales sin artefactos.
+- Los archivos se guardan en WAV; MP3 y M4A de salida siguen pendientes.
+- El almacenamiento del navegador puede ser limpiado por iOS; la papelera no sustituye una copia de seguridad.
+- La transcripción de archivos importados sigue pendiente.
+
+INSTALACIÓN: descomprime el ZIP y sube su contenido completo a GitHub Pages.
