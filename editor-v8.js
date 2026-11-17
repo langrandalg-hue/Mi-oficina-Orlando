@@ -1,6 +1,7 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id), S={pages:[],selected:new Set(),active:0,objects:[],chosen:null,history:[],future:[],trash:[],busy:false};
 const say=t=>$('v8status').textContent=t;
+window.orlandoSearchPages=()=>S.pages;
 const TTL=7*24*60*60*1000;
 let trashDB=null,trashReady=false;const pendingTrash=[];
 function openTrashDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open('orlando-v8-trash',1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('items'))req.result.createObjectStore('items',{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
