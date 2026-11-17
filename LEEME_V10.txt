@@ -1,0 +1,4 @@
+Mi Oficina Orlando V10 — prueba de Proteger PDF AES-256.
+Motor QPDF WebAssembly descargado desde jsDelivr al usar la herramienta. Requiere conexión inicial.
+Cifrado local y verificación con contraseña mediante QPDF. No probado todavía en Safari iPhone.
+Conserva una copia de V9.2. No uses la función con documentos sensibles hasta verificar en tu dispositivo que exige contraseña.
