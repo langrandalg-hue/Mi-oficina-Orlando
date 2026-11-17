@@ -1,0 +1,9 @@
+MI OFICINA ORLANDO V9.1 — PRUEBA EN SAFARI IPHONE
+
+Sube TODOS los archivos de este ZIP a la raíz de tu repositorio GitHub Pages, sustituyendo los existentes. No subas el ZIP sin descomprimir.
+
+Mejoras: explicaciones de operaciones; control separado azul de división y naranja de reproducción; corrección de eliminar fragmento; unión de varios audios con orden; volumen, normalización, fundidos, invertir, velocidad, repetir; escuchar resultados WAV; deshacer; compartir/guardar en Archivos; conversión a WAV.
+
+LIMITACIONES: La exportación de audio se realiza en WAV PCM. MP3/M4A/FLAC de salida NO están implementados. La velocidad modifica también el tono. Safari no permite crear automáticamente carpetas en Archivos sin interacción del usuario. La protección PDF con contraseña sigue pendiente y se mantiene deshabilitada. Los formatos de entrada dependen de Safari.
+
+Versión de prueba: revisa en iPhone antes de reemplazar una versión de producción; conserva una copia de V8.8.11 o V9.
