@@ -1,0 +1,3 @@
+Mi Oficina Orlando V9.2 — versión de prueba
+Editor audio: edición encadenada, vista previa real, guardar al final, grabar audio, velocidad, invertir, volumen.
+Nota: probar en Safari iPhone. MP3/M4A exportación y protección PDF aún pendientes. El cambio de velocidad también altera el tono.
