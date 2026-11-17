@@ -1,0 +1,7 @@
+MI OFICINA ORLANDO V10 — PRUEBA DE AUDIO
+
+Instalación: descomprime el ZIP y sube TODOS los archivos de la carpeta raíz a GitHub Pages, sustituyendo los existentes. No subas el ZIP sin descomprimir.
+
+Cambios: selector múltiple de audio, nombre de salida personalizado, WAV real, reducción básica de ruido constante, mejora básica de voz, eliminación de silencios, ecualización, mezcla superpuesta de pistas y dictado experimental por micrófono si Safari lo admite. Se mantienen las herramientas anteriores de edición de audio y PDF.
+
+LIMITACIONES IMPORTANTES: MP3 y M4A de salida no están habilitados (faltan codificadores). La transcripción de archivos importados todavía NO está implementada: el dictado experimental utiliza micrófono y depende del navegador. Los filtros de ruido y mejora son básicos, no equivalen a sistemas de inteligencia artificial. La herramienta de distorsión de voz sigue pendiente. El cifrado de PDF sigue pendiente de reparación. No se ha probado en un iPhone real: versión de prueba.
